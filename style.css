@@ -3,9 +3,17 @@
     margin-top: 200px;
     position: relative;
     line-height: 150%;
+    display: block;
 }
 button {
     background-color: lavender;
     display: block;
     width: 100%;
+}
+#start {
+    width: 50%;
+    margin: auto;
+}
+#quiz {
+    display: none;
 }

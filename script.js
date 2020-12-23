@@ -1,3 +1,4 @@
+var quiz = document.getElementById("quiz");
 var questionEl = document.getElementById("question");
 var aButton = document.getElementById("a");
 var bButton = document.getElementById("b");
@@ -52,6 +53,7 @@ function userChoice (event) {
 }
 
 function nextQuestion() {
+    quiz.style.display = "block";
     currentIndex +=1;
     question.textContent = questionArray[currentIndex]["question"];
     aButton.textContent = questionArray[currentIndex]["a"];
