@@ -25,7 +25,7 @@
     <div class="container-sm w-50 border" id="quiz">
         <!-- question -->
         <h1 id="question">Testing Testing</h1>
-        <div class="row gx-auto justify-content-center" id="buttons">
+        <div class="row justify-content-center" id="buttons">
             <div class="column p-2">
                 <button id="a">lots of placeholder text</button><br>
                 <button id="c">place</button>
@@ -53,7 +53,14 @@
     <div class="container-sm w-50 border" id="highscores">
         <h1>High Scores:</h1>
         <ol id="highscorelist"></ol>
-        <button id="playagain">Go back</button>
+        <div class="row justify-content-center">
+            <div class="column p-2">
+                <button id="goback">Go Back</button>
+            </div>
+            <div class="column p-2">
+                <button id="clearhighscores">Clear High Scores</button>
+            </div>         
+        </div>  
     </div>
 
     <script src="./script.js"></script>

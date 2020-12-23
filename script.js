@@ -15,7 +15,8 @@ var initialsInput = document.getElementById("initials");
 var submitButton = document.getElementById("submitinitials");
 var highScoreEl = document.getElementById("highscores");
 var highScoreList = document.getElementById("highscorelist");
-var playAgainButton = document.getElementById("playagain");
+var goBackButton = document.getElementById("goback");
+var clearButton = document.getElementById("clearhighscores");
 
 // Global variable declaration
 var interval;
@@ -24,11 +25,11 @@ var time;
 // This array stores the questions and the choices
 var questionArray = [
     {
-        "question": "Question1",
-        "a": "question1a",
-        "b": "question1b",
-        "c": "question1c",
-        "d": "question1d",
+        "question": "How often should you commit to Github?",
+        "a": "Each significant change.",
+        "b": "Every line.",
+        "c": "When you have a finished product.",
+        "d": "Never.",
     },
     {
         "question": "Question2",
@@ -60,10 +61,16 @@ function userChoice (event) {
     var answer = event.target.id;
     if (answer===correctArray[currentIndex]) {
         resultEl.textContent = "Correct!";
+        setTimeout(function () {
+            resultEl.textContent = "";
+        }, 1000);
         nextQuestion();
     }
     else {
         resultEl.textContent = "Wrong!";
+        setTimeout(function () {
+            resultEl.textContent = "";
+        }, 1000);
         time-=10;
         timeEl.textContent=time;
         nextQuestion();
@@ -136,10 +143,14 @@ submitButton.addEventListener("click", function(event) {
     localStorage.setItem(initialsInput.value, time);
     highScores();
 });
-playAgainButton.addEventListener("click", function () {
+goBackButton.addEventListener("click", function () {
     startScreenEl.style.display = "block";
     quizEl.style.display = "none";
     scoreScreenEl.style.display = "none";
     highScoreEl.style.display = "none";
     currentIndex=-1;
+});
+clearButton.addEventListener("click", function() {
+    localStorage.clear();
+    highScores();
 });

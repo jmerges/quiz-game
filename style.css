@@ -1,4 +1,4 @@
-h2 {
+#viewhighscores {
     position: fixed;
     top: 0;
     left: 5px;
@@ -16,7 +16,7 @@ button {
     display: block;
     width: 100%;
 }
-#start, #submitinitials, #playagain {
+#start, #submitinitials {
     width: 50%;
     margin: auto;
 }
@@ -37,8 +37,12 @@ button {
     line-height: 150%;
 }
 ol {
-    background-color: pink;
+    background-color: purple;
+    height: 200%;
 }
 li {
-    border: solid white 5px;
+    border: solid white 2px;
+    font-size: 24px;
+    color: white;
+    line-height: 150%;
 }
