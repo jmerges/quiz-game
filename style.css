@@ -2,7 +2,10 @@
     text-align: center;
     margin-top: 200px;
     position: relative;
+    line-height: 150%;
 }
 button {
     background-color: lavender;
+    display: block;
+    width: 100%;
 }

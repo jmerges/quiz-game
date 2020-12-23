@@ -3,7 +3,7 @@ var aButton = document.getElementById("a");
 var bButton = document.getElementById("b");
 var cButton = document.getElementById("c");
 var dButton = document.getElementById("d");
-var result = document.querySelector("result");
+var result = document.getElementById("result");
 
 // This array stores the questions and the choices
 var questionArray = [
@@ -28,7 +28,9 @@ var questionArray = [
         "c": "question3c",
         "d": "question3d",
     }
-]
+];
+
+var correctArray = ["a", "d", "c"];
 var currentIndex = 0;
 
 var initalTime = 75;
@@ -38,13 +40,13 @@ var correctChoice = "a";
 
 function userChoice (event) {
     var answer = event.target.id;
-    if (answer===correctChoice) {
+    if (answer===correctArray[currentIndex]) {
         result.textContent = "Correct!";
         nextQuestion();
     }
     else {
         result.textContent = "Wrong!";
-        time-=10;
+        // time-=10;
         nextQuestion();
     }
 }
@@ -56,6 +58,10 @@ function nextQuestion() {
     bButton.textContent = questionArray[currentIndex]["b"];
     cButton.textContent = questionArray[currentIndex]["c"];
     dButton.textContent = questionArray[currentIndex]["d"];
+    console.log(currentIndex);
 }
 
-nextQuestion();
+document.getElementById("a").addEventListener("click", userChoice);
+document.getElementById("b").addEventListener("click", userChoice);
+document.getElementById("c").addEventListener("click", userChoice);
+document.getElementById("d").addEventListener("click", userChoice);

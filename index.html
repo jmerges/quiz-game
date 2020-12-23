@@ -9,14 +9,20 @@
 </head>
 <body>
     <!-- Quiz -->
-    <div class="container-sm">
+    <div class="container-sm w-50 border">
         <!-- question -->
         <h1 id="question">Testing Testing</h1>
-        <button id="a">place</button>
-        <button id="b">holder</button>
-        <button id="c">place</button>
-        <button id="d">holder</button>
-        <h2 class="result"></h2>
+        <div class="row gx-auto justify-content-center" id="buttons">
+            <div class="column p-2">
+                <button id="a">lots of placeholder text</button><br>
+                <button id="c">place</button>
+            </div>
+            <div class="column p-2">
+                <button id="b">holder</button><br>
+                <button id="d">holder</button>
+            </div>
+        </div>
+        <h2 id="result"></h2>
     </div>
 
     <script src="./script.js"></script>
