@@ -1,4 +1,5 @@
 var quiz = document.getElementById("quiz");
+var startScreen = document.getElementById("startscreen");
 var questionEl = document.getElementById("question");
 var aButton = document.getElementById("a");
 var bButton = document.getElementById("b");
@@ -32,7 +33,9 @@ var questionArray = [
 ];
 
 var correctArray = ["a", "d", "c"];
-var currentIndex = 0;
+
+// start index at -1, will become 0 when first question is displayed
+var currentIndex = -1;
 
 var initalTime = 75;
 
@@ -53,17 +56,24 @@ function userChoice (event) {
 }
 
 function nextQuestion() {
-    quiz.style.display = "block";
-    currentIndex +=1;
-    question.textContent = questionArray[currentIndex]["question"];
-    aButton.textContent = questionArray[currentIndex]["a"];
-    bButton.textContent = questionArray[currentIndex]["b"];
-    cButton.textContent = questionArray[currentIndex]["c"];
-    dButton.textContent = questionArray[currentIndex]["d"];
-    console.log(currentIndex);
+    if (currentIndex === questionArray.length-1) {
+// TODO: scorescreen
+    }
+    else {
+        startScreen.style.display = "none";
+        quiz.style.display = "block";
+        currentIndex +=1;
+        question.textContent = questionArray[currentIndex]["question"];
+        aButton.textContent = questionArray[currentIndex]["a"];
+        bButton.textContent = questionArray[currentIndex]["b"];
+        cButton.textContent = questionArray[currentIndex]["c"];
+        dButton.textContent = questionArray[currentIndex]["d"];
+        console.log(currentIndex);
+    }
 }
 
-document.getElementById("a").addEventListener("click", userChoice);
-document.getElementById("b").addEventListener("click", userChoice);
-document.getElementById("c").addEventListener("click", userChoice);
-document.getElementById("d").addEventListener("click", userChoice);
+startScreen.addEventListener("click", nextQuestion);
+aButton.addEventListener("click", userChoice);
+bButton.addEventListener("click", userChoice);
+cButton.addEventListener("click", userChoice);
+dButton.addEventListener("click", userChoice);
