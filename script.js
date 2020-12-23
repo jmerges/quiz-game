@@ -26,24 +26,24 @@ var time;
 var questionArray = [
     {
         "question": "How often should you commit to Github?",
-        "a": "Each significant change.",
-        "b": "Every line.",
-        "c": "When you have a finished product.",
+        "a": "Early and often.",
+        "b": "Every keystroke.",
+        "c": "Once.",
         "d": "Never.",
     },
     {
-        "question": "Question2",
-        "a": "question2a",
-        "b": "quesiton2b",
-        "c": "question2c",
-        "d": "question2d",
+        "question": "Should you comment your code?",
+        "a": "Only on tuesdays.",
+        "b": "Blarg.",
+        "c": "No.",
+        "d": "Yes.",
     },
     {
-        "question": "Question3",
-        "a": "question3a",
-        "b": "question3b",
-        "c": "question3c",
-        "d": "question3d",
+        "question": "When you want to iterate over a set length object, a _____ should be used.",
+        "a": "If statement.",
+        "b": "Math.random().",
+        "c": "For loop.",
+        "d": "While loop.",
     }
 ];
 
@@ -119,6 +119,9 @@ function scoreScreen () {
 }
 
 function highScores () {
+    clearInterval(interval);
+    timeEl.textContent = 75;
+    timeEl.style.display = "none";
     highScoreList.innerHTML = "";
     startScreenEl.style.display = "none";
     quizEl.style.display = "none";

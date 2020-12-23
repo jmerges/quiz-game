@@ -12,7 +12,9 @@
     display: block;
 }
 button {
-    background-color: lavender;
+    background-color: Green;
+    border: solid white;
+    color: white;
     display: block;
     width: 100%;
 }
