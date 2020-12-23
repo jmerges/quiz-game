@@ -10,7 +10,7 @@ button {
     display: block;
     width: 100%;
 }
-#start {
+#start, #submitinitials {
     width: 50%;
     margin: auto;
 }

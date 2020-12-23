@@ -8,6 +8,10 @@ var bButton = document.getElementById("b");
 var cButton = document.getElementById("c");
 var dButton = document.getElementById("d");
 var resultEl = document.getElementById("result");
+var scoreScreenEl = document.getElementById("scorescreen");
+var finalScoreEl = document.getElementById("finalscore");
+var initialsInput = document.getElementById("initials");
+var submitButton = document.getElementById("submitinitials");
 
 // Global variable declaration
 var interval;
@@ -64,7 +68,8 @@ function userChoice (event) {
 
 function nextQuestion() {
     if (currentIndex === questionArray.length-1) {
-// TODO: scorescreen
+        clearInterval(interval);
+        scoreScreen();
     }
     else {
         startScreenEl.style.display = "none";
@@ -90,15 +95,28 @@ function startQuiz() {
         console.log(time);
         if (time<=0) {
             clearInterval(interval);
-            // TODO: scorescreen
+            scoreScreen();
         }
     }, 1000);
 }
 
-// function scoreScreen
+function scoreScreen () {
+    quizEl.style.display = "none";
+    scoreScreenEl.style.display = "block";
+    timeEl.style.display = "none";
+    finalScoreEl.textContent = "Final score is: "+time+".";
+}
+
+function highScores () {
+    // 
+}
 
 startEl.addEventListener("click", startQuiz);
 aButton.addEventListener("click", userChoice);
 bButton.addEventListener("click", userChoice);
 cButton.addEventListener("click", userChoice);
 dButton.addEventListener("click", userChoice);
+submitButton.addEventListener("click", function() {
+    localStorage.setItem(initialsInput.value, time);
+    highScores();
+});
