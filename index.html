@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+    <!-- HighScores Link -->
+    <h2 id="viewhighscores">View Highscores</h2>
+
     <!-- Start Screen -->
     <div class="container-sm w-50 border" id="startscreen">
         <h1>Coding Quiz Challenge</h1>
@@ -44,6 +47,13 @@
             <input type="text" id="initials">
             <button id="submitinitials">Submit</button>
         </form>
+    </div>
+
+    <!-- High Scores -->
+    <div class="container-sm w-50 border" id="highscores">
+        <h1>High Scores:</h1>
+        <ol id="highscorelist"></ol>
+        <button id="playagain">Go back</button>
     </div>
 
     <script src="./script.js"></script>

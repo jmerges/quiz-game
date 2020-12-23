@@ -1,3 +1,4 @@
+var viewHighScores = document.getElementById("viewhighscores");
 var timeEl = document.getElementById("time");
 var quizEl = document.getElementById("quiz");
 var startScreenEl = document.getElementById("startscreen");
@@ -12,6 +13,9 @@ var scoreScreenEl = document.getElementById("scorescreen");
 var finalScoreEl = document.getElementById("finalscore");
 var initialsInput = document.getElementById("initials");
 var submitButton = document.getElementById("submitinitials");
+var highScoreEl = document.getElementById("highscores");
+var highScoreList = document.getElementById("highscorelist");
+var playAgainButton = document.getElementById("playagain");
 
 // Global variable declaration
 var interval;
@@ -108,15 +112,34 @@ function scoreScreen () {
 }
 
 function highScores () {
-    // 
+    highScoreList.innerHTML = "";
+    startScreenEl.style.display = "none";
+    quizEl.style.display = "none";
+    scoreScreenEl.style.display = "none";
+    highScoreEl.style.display = "block";
+    var currentMax = parseInt(localStorage.getItem(localStorage.key(0)));
+    for (var i=0; i<localStorage.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = localStorage.key(i)+" - "+localStorage.getItem(localStorage.key(i));
+        highScoreList.appendChild(li);
+    }
 }
 
+viewHighScores.addEventListener("click", highScores);
 startEl.addEventListener("click", startQuiz);
 aButton.addEventListener("click", userChoice);
 bButton.addEventListener("click", userChoice);
 cButton.addEventListener("click", userChoice);
 dButton.addEventListener("click", userChoice);
-submitButton.addEventListener("click", function() {
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
     localStorage.setItem(initialsInput.value, time);
     highScores();
+});
+playAgainButton.addEventListener("click", function () {
+    startScreenEl.style.display = "block";
+    quizEl.style.display = "none";
+    scoreScreenEl.style.display = "none";
+    highScoreEl.style.display = "none";
+    currentIndex=-1;
 });

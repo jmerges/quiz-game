@@ -1,3 +1,9 @@
+h2 {
+    position: fixed;
+    top: 0;
+    left: 5px;
+    color: purple;
+}
 .container-sm {
     text-align: center;
     margin-top: 200px;
@@ -10,7 +16,7 @@ button {
     display: block;
     width: 100%;
 }
-#start, #submitinitials {
+#start, #submitinitials, #playagain {
     width: 50%;
     margin: auto;
 }
@@ -25,4 +31,14 @@ button {
 }
 #scorescreen {
     display: none;
+}
+#highscores {
+    display: none;
+    line-height: 150%;
+}
+ol {
+    background-color: pink;
+}
+li {
+    border: solid white 5px;
 }
