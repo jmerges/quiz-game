@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Start Screen -->
     <div class="container-sm w-50 border" id="startscreen">
         <h1>Coding Quiz Challenge</h1>
         <p>
@@ -17,6 +18,7 @@
     </div>
 
     <!-- Quiz -->
+    <header id="time">75</header>
     <div class="container-sm w-50 border" id="quiz">
         <!-- question -->
         <h1 id="question">Testing Testing</h1>
@@ -31,6 +33,12 @@
             </div>
         </div>
         <h2 id="result"></h2>
+    </div>
+
+    <!-- Score Screen -->
+    <div class="container-sm w-50 border" id="scorescreen">
+        <h1>All done!</h1>
+        <p id="finalscore"></p>
     </div>
 
     <script src="./script.js"></script>

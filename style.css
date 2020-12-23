@@ -17,3 +17,12 @@ button {
 #quiz {
     display: none;
 }
+#time {
+    position: fixed;
+    right: 5px;
+    top: 0;
+    display: none;
+}
+#scorescreen {
+    display: none;
+}

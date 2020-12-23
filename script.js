@@ -1,11 +1,17 @@
-var quiz = document.getElementById("quiz");
-var startScreen = document.getElementById("startscreen");
+var timeEl = document.getElementById("time");
+var quizEl = document.getElementById("quiz");
+var startScreenEl = document.getElementById("startscreen");
+var startEl = document.getElementById("start");
 var questionEl = document.getElementById("question");
 var aButton = document.getElementById("a");
 var bButton = document.getElementById("b");
 var cButton = document.getElementById("c");
 var dButton = document.getElementById("d");
-var result = document.getElementById("result");
+var resultEl = document.getElementById("result");
+
+// Global variable declaration
+var interval;
+var time;
 
 // This array stores the questions and the choices
 var questionArray = [
@@ -45,12 +51,13 @@ var correctChoice = "a";
 function userChoice (event) {
     var answer = event.target.id;
     if (answer===correctArray[currentIndex]) {
-        result.textContent = "Correct!";
+        resultEl.textContent = "Correct!";
         nextQuestion();
     }
     else {
-        result.textContent = "Wrong!";
-        // time-=10;
+        resultEl.textContent = "Wrong!";
+        time-=10;
+        timeEl.textContent=time;
         nextQuestion();
     }
 }
@@ -60,8 +67,8 @@ function nextQuestion() {
 // TODO: scorescreen
     }
     else {
-        startScreen.style.display = "none";
-        quiz.style.display = "block";
+        startScreenEl.style.display = "none";
+        quizEl.style.display = "block";
         currentIndex +=1;
         question.textContent = questionArray[currentIndex]["question"];
         aButton.textContent = questionArray[currentIndex]["a"];
@@ -72,7 +79,25 @@ function nextQuestion() {
     }
 }
 
-startScreen.addEventListener("click", nextQuestion);
+function startQuiz() {
+    clearInterval(interval);
+    timeEl.style.display = "block";
+    time = 75;
+    nextQuestion();
+    interval = setInterval(function() {
+        time--;
+        timeEl.textContent = time;
+        console.log(time);
+        if (time<=0) {
+            clearInterval(interval);
+            // TODO: scorescreen
+        }
+    }, 1000);
+}
+
+// function scoreScreen
+
+startEl.addEventListener("click", startQuiz);
 aButton.addEventListener("click", userChoice);
 bButton.addEventListener("click", userChoice);
 cButton.addEventListener("click", userChoice);
